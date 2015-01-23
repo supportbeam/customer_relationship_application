@@ -73,6 +73,18 @@ class CRM
 
 	def modify_contact
 		puts "Which contact would you like to modify?"
+		id = gets.chomp
+
+		# contact = Contact.new(first_name, last_name, email, note)
+		# @rolodex.add_contact(new_contact)
+	end
+
+	def display_contacts
+		@rolodex.display_contacts
+	end
+
+	def display_attribute(attribute)
+	end
 
 end
 
@@ -80,10 +92,3 @@ bitmaker = CRM.new("Bitmaker Labs CRM")
 personal = CRM.new("Personal CRM")
 bitmaker.main_menu #calling the method to start the program
 puts bitmaker.name
-
-
-# main_menu
-# -> print_main_menu
-# -> choose_option
-# 	-> add_contact
-# -> main_menu

@@ -15,16 +15,40 @@ class Rolodex
     contact
   end
 
-  def modify_contact
+  def modify_contact(id)
+    # contact = @contacts[id]
+    # puts "Got contact #{contact.name}"
   end
 
   def display_contacts
+    @contacts.each do |c|
+      puts "Name:  #{c.first_name} #{c.last_name}"
+      puts "Email: #{c.email}"
+      puts "Note:  #{c.note}"
+      puts "ID: #{c.id}"
+      puts ""
+    end
+    nil
   end
 
-  def display_contact
+  def display_contact(id)
+    c = @contacts.select { |contact|  contact.id. == id  }.first
+    puts "Name:  #{c.first_name} #{c.last_name}"
+    puts "Email: #{c.email}"
+    puts "Note:  #{c.note}"
+    puts "ID: #{c.id}"
+    puts ""
   end
 
-  def display_attribute
+# As a user, if 'display attribute' is selected, I am prompted to enter an attribute ('firstname', 'lastname', 'email', or 'notes') so that I can see all of the contacts according to that attribute.
+  def display_attribute(attribute)
+    contacts.each do |c|
+      if c.include? attribute
+        puts 
+      else
+        puts "Sorry"
+      end
+    end
   end
 
   def delete_contact(contact)
