@@ -46,15 +46,21 @@ class Rolodex
   def display_attribute(attribute)
     @contacts.each do |c|
       case attribute
-       when attribute == 'firstname' then  c.first_name   
-       when attribute == 'lastname' then c.last_name
-       when attribute == 'email' then c.email
-       when attribute == 'notes' then c.note     
+       when 'firstname' then  puts "#{c.first_name}"
+       when 'lastname' then puts "#{c.last_name}"
+       when 'email' then puts "#{c.email}"
+       when 'notes' then puts "#{c.note}"
+       else
+        "That is not a valid attribute. Please try again."
       end 
     end
   end
 
-  def delete_contact(contact)
+  def delete_contact(id)
+    del = display_contact(id)
+    @contacts.delete(del)
+        # @contacts.find do |contact| 
+    #   @contacts.delete(id) if contact.id == id
   end
 
 end

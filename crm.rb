@@ -72,9 +72,9 @@ class CRM
 	end
 
 	def modify_contact
-		puts "Which contact would you like to modify?"
-		id = gets.chomp
-
+		puts "Please enter the id of the contact to modify: "
+		id = gets.chomp.to_i
+    @rolodex.modify_contact(id)
 		# contact = Contact.new(first_name, last_name, email, note)
 		# @rolodex.add_contact(new_contact)
 	end
@@ -95,8 +95,14 @@ class CRM
 	def display_attribute
     puts "Please enter an attribute: "
     attribute = gets.chomp
-    puts @rolodex.display_attribute(attribute)
+    @rolodex.display_attribute(attribute)
 	end
+
+  def delete_contact
+    puts "Please provide the ID of the contact to delete: "
+    id = gets.chomp.to_i
+    @rolodex.delete_contact(id)
+  end
 
 end
 
