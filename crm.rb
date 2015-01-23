@@ -8,6 +8,10 @@ class CRM
 	def initialize(name)
 		@name = name #instance variable private and local to instance of class
 		@rolodex = Rolodex.new
+    c1 = Contact.new("Jess", "Lim", "email", "me")
+    c2 = Contact.new("John", "Smith", "email2", "dude")
+    @rolodex.add_contact(c1)
+    @rolodex.add_contact(c2)
 	end
 
 	# Don't need name method because attr_reader is used:
@@ -71,10 +75,25 @@ class CRM
 		@rolodex.add_contact(new_contact)
 	end
 
+
+# As a user, if 'modify' is selected, I am prompted to enter an id for the contact to be modified.
+# As a user, when an id is entered, I am prompted to type 'yes' or 'no' to confirm my selection.
+# As a user, if 'yes' is typed, I am prompted to change 'firstname', 'lastname', 'email' or 'notes' by number. You shouldn't be able to change the 'id'.
 	def modify_contact
 		puts "Please enter the id of the contact to modify: "
 		id = gets.chomp.to_i
-    @rolodex.modify_contact(id)
+    puts "Please confirm yes or no to modify #{id}: "
+    answer = gets.chomp.downcase
+    if answer == 'yes'
+      puts "Please enter the number you would like to edit: \n
+      1. First Name \n
+      2. Last Namme \n
+      3. Email \n
+      4. Note"
+    end
+    @rolodex.modify_contact(id, answer, attribute)
+
+
 		# contact = Contact.new(first_name, last_name, email, note)
 		# @rolodex.add_contact(new_contact)
 	end
@@ -82,7 +101,7 @@ class CRM
 	def display_contacts
     puts "All contacts: "
     puts
-		@rolodex.display_contacts
+		puts @rolodex.display_contacts
 	end
 
   def display_contact

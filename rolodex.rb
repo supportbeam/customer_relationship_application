@@ -15,20 +15,24 @@ class Rolodex
     contact
   end
 
-  def modify_contact(id)
+# As a user, if 'modify' is selected, I am prompted to enter an id for the contact to be modified.
+# As a user, when an id is entered, I am prompted to type 'yes' or 'no' to confirm my selection.
+# As a user, if 'yes' is typed, I am prompted to change 'firstname', 'lastname', 'email' or 'notes' by number. You shouldn't be able to change the 'id'.
+  def modify_contact(id, answer, attribute)
+    display_contact(id)
+
+
     # contact = @contacts[id]
     # puts "Got contact #{contact.name}"
   end
 
   def display_contacts
-    @contacts.each do |c|
-      puts "Name:  #{c.first_name} #{c.last_name}"
-      puts "Email: #{c.email}"
-      puts "Note:  #{c.note}"
-      puts "ID: #{c.id}"
-      puts ""
-    end
-    nil
+    @contacts.each { |c| c }
+      # puts "Name: #{c.first_name} #{c.last_name}"
+      # puts "Email: #{c.email}"
+      # puts "Note:  #{c.note}"
+      # puts "ID: #{c.id}"
+      # puts ""
   end
 
   def display_contact(id)
