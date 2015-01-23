@@ -80,10 +80,22 @@ class CRM
 	end
 
 	def display_contacts
+    puts "All contacts: "
+    puts
 		@rolodex.display_contacts
 	end
 
-	def display_attribute(attribute)
+  def display_contact
+    puts "Please enter an ID: "
+    id = gets.chomp.to_i
+    puts @rolodex.display_contact(id)
+  end
+
+# As a user, if 'display attribute' is selected, I am prompted to enter an attribute ('firstname', 'lastname', 'email', or 'notes') so that I can see all of the contacts according to that attribute.
+	def display_attribute
+    puts "Please enter an attribute: "
+    attribute = gets.chomp
+    puts @rolodex.display_attribute(attribute)
 	end
 
 end
