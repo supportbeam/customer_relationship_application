@@ -18,9 +18,17 @@ class Rolodex
 # As a user, if 'modify' is selected, I am prompted to enter an id for the contact to be modified.
 # As a user, when an id is entered, I am prompted to type 'yes' or 'no' to confirm my selection.
 # As a user, if 'yes' is typed, I am prompted to change 'firstname', 'lastname', 'email' or 'notes' by number. You shouldn't be able to change the 'id'.
-  def modify_contact(id, attribute)
-    display_contact(id)
-    contact 
+  def modify_contact(id, option, new_attribute)
+    @contacts.find do |contact| 
+      if contact.id == id
+        case option
+          when 1 then contact.first_name = new_attribute
+          when 2 then contact.last_name = new_attribute
+          when 3 then contact.email = new_attribute
+          when 4 then contact.note = new_attribute
+        end
+      end
+    end
     # contact = @contacts[id]
     # puts "Got contact #{contact.name}"
   end

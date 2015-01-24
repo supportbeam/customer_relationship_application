@@ -83,7 +83,8 @@ class CRM
 		puts "Please enter the id of the contact to modify: "
 		id = gets.chomp.to_i
     # display_contact could use this method but how to retreive
-    puts "Please confirm 'yes' or 'no' to modify contact ID: #{id}: "
+    puts "Please confirm 'yes' or 'no' to modify this contact: "
+    puts @rolodex.display_contact(id)
     answer = gets.chomp.downcase
     if answer == 'yes'
       puts "Please enter the number of the attribute you would like to edit: \n
@@ -91,12 +92,16 @@ class CRM
       2. Last Namme \n
       3. Email \n
       4. Note"
-      attribute = gets.chomp.downcase
-      @rolodex.modify_contact(id, attribute)
+      option = gets.chomp.downcase
+      puts "Please provide the edit:"
+      new_attribute = gets.chomp
+      @rolodex.modify_contact(id, option, new_attribute)
+      puts "Edit complete: "
+      puts @rolodex.display_contact(id)
     elsif answer == 'no'
-      main_menu
+      return
     else
-      puts "Please enter 'yes' or 'no': "
+      puts "That is not a valid answer, please try again."
     end
 	end
 
