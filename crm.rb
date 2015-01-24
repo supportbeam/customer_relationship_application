@@ -82,20 +82,22 @@ class CRM
 	def modify_contact
 		puts "Please enter the id of the contact to modify: "
 		id = gets.chomp.to_i
-    puts "Please confirm yes or no to modify #{id}: "
+    # display_contact could use this method but how to retreive
+    puts "Please confirm 'yes' or 'no' to modify contact ID: #{id}: "
     answer = gets.chomp.downcase
     if answer == 'yes'
-      puts "Please enter the number you would like to edit: \n
+      puts "Please enter the number of the attribute you would like to edit: \n
       1. First Name \n
       2. Last Namme \n
       3. Email \n
       4. Note"
+      attribute = gets.chomp.downcase
+      @rolodex.modify_contact(id, attribute)
+    elsif answer == 'no'
+      main_menu
+    else
+      puts "Please enter 'yes' or 'no': "
     end
-    @rolodex.modify_contact(id, answer, attribute)
-
-
-		# contact = Contact.new(first_name, last_name, email, note)
-		# @rolodex.add_contact(new_contact)
 	end
 
 	def display_contacts

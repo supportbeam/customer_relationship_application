@@ -18,10 +18,9 @@ class Rolodex
 # As a user, if 'modify' is selected, I am prompted to enter an id for the contact to be modified.
 # As a user, when an id is entered, I am prompted to type 'yes' or 'no' to confirm my selection.
 # As a user, if 'yes' is typed, I am prompted to change 'firstname', 'lastname', 'email' or 'notes' by number. You shouldn't be able to change the 'id'.
-  def modify_contact(id, answer, attribute)
+  def modify_contact(id, attribute)
     display_contact(id)
-
-
+    contact 
     # contact = @contacts[id]
     # puts "Got contact #{contact.name}"
   end
