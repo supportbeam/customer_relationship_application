@@ -10,11 +10,6 @@ class CRM
 		@rolodex = Rolodex.new
 	end
 
-	# Don't need name method because attr_reader is used:
-	# def name
-	# 	@name
-	# end
-
 	def print_main_menu
 		puts "[1] Add a contact"
 		puts "[2] Modify a contact"
@@ -26,17 +21,16 @@ class CRM
 	end
 
 	def main_menu
-		puts "Welcome to #{@name}" #instance object is available within whole program
+		puts "Welcome to #{@name}" #instance object @name is available within whole program
 		while true
 			print_main_menu
-			input = gets.chomp.to_i # => 4
+			input = gets.chomp.to_i
 			choose_option(input)
 			return if input == 7
 		end
 	end
 
 	def choose_option(option)
-		# => option = 4
 		case option
 		when 1 then add_contact
 		when 2 then modify_contact
@@ -78,7 +72,6 @@ class CRM
 	def modify_contact
 		puts "Please enter the id of the contact to modify: "
 		id = gets.chomp.to_i
-    # display_contact could use this method but how to retreive
     puts "Please confirm 'yes' or 'no' to modify this contact: "
     puts @rolodex.display_contact(id)
     answer = gets.chomp.downcase
@@ -129,6 +122,4 @@ class CRM
 end
 
 bitmaker = CRM.new("Bitmaker Labs CRM")
-personal = CRM.new("Personal CRM")
 bitmaker.main_menu #calling the method to start the program
-puts bitmaker.name

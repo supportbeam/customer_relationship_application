@@ -1,11 +1,8 @@
-#Rolodex is a database
-
-class Rolodex
+class Rolodex #database of contacts
 
   @@ids = 1 # @@: class variable value that is constant to all class instances
 	def initialize
     @contacts = []
-    # @ids = 1001 
   end
 
   def add_contact(contact)
@@ -28,28 +25,14 @@ class Rolodex
       else
         "That is not a valid option. Please try again."
     end
-    # contact = @contacts[id]
-    # puts "Got contact #{contact.name}"
   end
 
   def display_contacts
     @contacts.each { |c| c }
-      # puts "Name: #{c.first_name} #{c.last_name}"
-      # puts "Email: #{c.email}"
-      # puts "Note:  #{c.note}"
-      # puts "ID: #{c.id}"
-      # puts ""
   end
 
   def display_contact(id)
     @contacts.find { |contact| contact.id == id}
-    # c = @contacts.search { |contact|  contact.id == id  }.first
-    # c.to_s
-    # puts "Name:  #{c.@first_name} #{c.@last_name}"
-    # puts "Email: #{c.email}"
-    # puts "Note:  #{c.note}"
-    # puts "ID: #{c.id}"
-    # puts ""
   end
 
 # As a user, if 'display attribute' is selected, I am prompted to enter an attribute ('firstname', 'lastname', 'email', or 'notes') so that I can see all of the contacts according to that attribute.
