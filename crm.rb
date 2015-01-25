@@ -8,10 +8,6 @@ class CRM
 	def initialize(name)
 		@name = name #instance variable private and local to instance of class
 		@rolodex = Rolodex.new
-    c1 = Contact.new("Jess", "Lim", "email", "me")
-    c2 = Contact.new("John", "Smith", "email2", "dude")
-    @rolodex.add_contact(c1)
-    @rolodex.add_contact(c2)
 	end
 
 	# Don't need name method because attr_reader is used:
@@ -92,7 +88,7 @@ class CRM
       2. Last Namme \n
       3. Email \n
       4. Note"
-      option = gets.chomp.downcase
+      option = gets.chomp.to_i
       puts "Please provide the edit:"
       new_attribute = gets.chomp
       @rolodex.modify_contact(id, option, new_attribute)
